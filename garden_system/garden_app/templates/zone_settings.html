@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Zone settings{% endblock %}
+
+{% block content %}
+
+<div class="">
+    <table class="table table-sm">
+        <thead>
+        <h4>Zones table</h4>
+        </thead>
+
+        <tbody>
+        <tr class="row mx-0">
+            <td class="col-2">{{ zone.name }}</td>
+            <td class="col-1">
+                {% if zone.state %}
+                <button class="btn btn-sm btn-block btn-success">ON</button>
+                {% else %}
+                <button class="btn btn-sm btn-block btn-outline-danger">OFF</button>
+                {% endif %}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+
+{% endblock %}

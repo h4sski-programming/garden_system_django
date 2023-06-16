@@ -24,7 +24,8 @@
         <div class="menu">
             <div class="row navbar navbar-expand-lg navbar-light bg-light mx-0">
                 <div class="col navbar-nav nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="{% url 'garden_app:index' %}">Home</a>
+                    <a class="nav-link" href="{% url 'garden_app:zone_settings' 1 %}">Zone settings</a>
                 </div>
                 <div class="col-1 navbar-nav nav-item">
                     <a class="nav-link" href="/admin">Admin</a>

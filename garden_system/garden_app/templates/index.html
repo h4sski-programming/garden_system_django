@@ -16,14 +16,17 @@
         </thead>
 
         <tbody>
-        {% for zone_name, zone_state in zones.items %}
-        <tr class="row mx-0">
-            <td class="col-2">{{ zone_name }}</td>
-            <td class="col-1">
-                {% if zone_state %}
-                <button class="btn btn-sm btn-block btn-success">ON</button>
+        {% for zone in zones %}
+        <tr class="row mx-0 w-25">
+            <td class="col">
+                <a href="{% url 'garden_app:zone_settings' zone.id %}" class="btn btn-sm btn-block btn-outline-secondary">{{ zone.name }}</a>
+            </td>
+
+            <td class="col">
+                {% if zone.state %}
+                <a href="{% url 'garden_app:change_zone_state' zone.id %}" class="btn btn-sm btn-block btn-success">ON</a>
                 {% else %}
-                <button class="btn btn-sm btn-block btn-outline-danger">OFF</button>
+                <a href="{% url 'garden_app:change_zone_state' zone.id %}" class="btn btn-sm btn-block btn-outline-danger">OFF</a>
                 {% endif %}
             </td>
         </tr>
@@ -36,16 +39,5 @@
 
 <hr/>
 
-
-<div class="">
-    <h4>Zones list</h4>
-
-    {% for zone_name, zone_state in zones.items %}
-    <div class="row">
-        <div class="col">{{ zone_name }}</div>
-        <div class="col">{{ zone_state }}</div>
-    </div>
-    {% endfor %}
-</div>
 
 {% endblock %}
